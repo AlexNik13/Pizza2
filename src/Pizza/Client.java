@@ -5,19 +5,21 @@ import java.util.Scanner;
 public class Client {
     private int numClient;
     static int id =0;
-    //public Pizza[] zakaz;
+
     double paid;
-    //public ArrayPizza[] zakaz ;
+
+
+
     public Client() {
         this.numClient = id++;
-    //    zakaz = new Pizza[0];
+
     }
 
-
+    Pizza[] zakaz = new Pizza[0];
 
     Scanner in = new Scanner(System.in);
 
-    Pizza[] menuZakaz(Pizza[] zakaz){
+    void menuZakaz(){
         boolean menu = true;
         while (menu){
             System.out.println("Выбор пицци");
@@ -47,20 +49,20 @@ public class Client {
             }
 
         }
-        return zakaz;
+
     }
 
 
 
 
     Pizza[] addPizza(Pizza[] pizza , NamePizza addPizza ){
-        System.out.println("addPizza " + pizza.length);
         Pizza[] newZakaz = new Pizza[pizza.length + 1];
-        System.out.println("newZakaz " + newZakaz.length);
 
         for(int i = 0; i < pizza.length; i++){
             newZakaz[i] = pizza[i];
         }
+
+        newZakaz[pizza.length] = new Pizza();
         newZakaz[pizza.length].createPizza(addPizza);
 
 

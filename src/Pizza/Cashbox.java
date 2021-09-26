@@ -9,10 +9,10 @@ public class Cashbox {
         sum = 0;
         System.out.println("Чек № " + checkNumb);
         System.out.println("===================");
-        /*for (int i =0; i < client.zakaz.length; i++){
-            System.out.print(client.zakaz[i]. + " " + costPizza(client.zakaz[i]) );
+        for (int i =0; i < client.zakaz.length; i++){
+            System.out.print(client.zakaz[i].getName() + " " + costPizza(client.zakaz[i]) + "\n");
             sum += costPizza(client.zakaz[i]);
-        }*/
+        }
         System.out.println("  ИТОГО: " + sum + " грн.");
 
     }
