@@ -7,6 +7,7 @@ public class PizzaFarm extends Pizza{
         super("Фермерская пицца");
         super.baseIningredient();
         ingredients = meatIngredient();
+        super.dopIngredients();
     }
 
     Ingredient[] meatIngredient(){
