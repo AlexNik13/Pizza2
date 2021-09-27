@@ -7,6 +7,7 @@ public class PizzaMeat extends Pizza{
         super.baseIningredient();
         ingredients = meatIngredient();
         super.dopIngredients();
+        super.costPizza();
     }
 
     Ingredient[] meatIngredient(){

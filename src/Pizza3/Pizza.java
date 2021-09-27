@@ -20,9 +20,8 @@ public abstract class Pizza {
 
     public String getName() {
         return name;
-
-
     }
+
     void baseIningredient(){
         ingredients[0] = new Ingredient("Тесто", 50, 100);
         ingredients[1] = new Ingredient("Сыр", 50, 100);
@@ -56,7 +55,7 @@ public abstract class Pizza {
         }
 
         temp[ingredients.length] = new Ingredient(name, cost, quantity);
-
+        costPizza();
         return temp;
     }
 
@@ -70,11 +69,17 @@ public abstract class Pizza {
     }
 
     void dopIngredients(){
-        System.out.println("Добавки к пицце 1 - да, 2 - нет. ");
-        int choice = in.nextInt();
-        if(choice == 1){
-            ingredients = addIngredient();
-        }
+
+        int choice;
+        do {
+            System.out.println("Добавки к пицце 1 - да, 2 - нет. ");
+            choice = in.nextInt();
+
+            if(choice == 1){
+                ingredients = addIngredient();
+            }
+        }while (choice == 1);
+
 
     }
 
