@@ -1,12 +1,12 @@
+
 package Pizza3;
 
-public class PizzaMeat extends Pizza{
+public class PizzaFarm extends Pizza{
 
-    public PizzaMeat() {
-        super("Мясная пицца");
+    public PizzaFarm() {
+        super("Фермерская пицца");
         super.baseIningredient();
         ingredients = meatIngredient();
-        super.dopIngredients();
     }
 
     Ingredient[] meatIngredient(){
@@ -16,15 +16,12 @@ public class PizzaMeat extends Pizza{
             temp[i] = ingredients[i];
         }
         temp[i] = new Ingredient("Мясо", 135, 50);
-        temp[i + 1] = new Ingredient("Мясо", 135, 50);
-        temp[i + 2] = new Ingredient("Колбаса", 235, 50);
-        temp[i + 3] = new Ingredient("Оливки", 348, 10);
+        temp[i + 1] = new Ingredient("Бекон", 105, 50);
+        temp[i + 2] = new Ingredient("Домашня колбаса", 235, 50);
+        temp[i + 3] = new Ingredient("Лук", 18, 10);
         temp[i + 4] = new Ingredient("Помидоры", 35, 30);
 
 
         return temp;
     }
-
-
-
 }
