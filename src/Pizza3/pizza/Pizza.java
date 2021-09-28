@@ -1,14 +1,14 @@
-package Pizza3;
+package Pizza3.pizza;
 
-import java.util.Arrays;
-import java.util.Calendar;
+import Pizza3.ingredients.Ingredient;
+
 import java.util.Scanner;
 
 public abstract class Pizza {
+
     private String name;
     private double costPizza;
-
-    Ingredient[] ingredients = new Ingredient[3];
+    private Ingredient[] ingredients = new Ingredient[3];
 
     Scanner in = new Scanner(System.in);
 
@@ -22,7 +22,7 @@ public abstract class Pizza {
         return name;
     }
 
-    void baseIningredient(){
+    public void baseIningredient(){
         ingredients[0] = new Ingredient("Тесто", 50, 100);
         ingredients[1] = new Ingredient("Сыр", 50, 100);
         ingredients[2] = new Ingredient("Соус", 50, 50);
@@ -37,39 +37,35 @@ public abstract class Pizza {
         return ingredients;
     }
 
+    public void setIngredients(Ingredient[] ingredients) {
+        this.ingredients = ingredients;
+    }
 
-
-    Ingredient[] addIngredient(){
+    public Ingredient[] addIngredient(){
         System.out.println("Введите имя ингредиента");
-
         String name = in.next();
         System.out.println("Введите цену ингредиента");
         double cost = in.nextDouble();
         System.out.println("Введите количество в граммах");
         int quantity = in.nextInt();
-
         Ingredient[] temp = new Ingredient[ingredients.length +1];
-
         for(int i = 0; i < ingredients.length; i++){
             temp[i] = ingredients[i];
         }
-
         temp[ingredients.length] = new Ingredient(name, cost, quantity);
         costPizza();
         return temp;
     }
 
-    double costPizza(){
+    public double costPizza(){
         costPizza = 0;
         for(int i = 0; i < ingredients.length; i++){
-            costPizza += ingredients[i].getCost()   /   1000 * ingredients[i].getQuantity();
+            costPizza += (ingredients[i].getCost() / 1000) * ingredients[i].getQuantity();
         }
-
         return (double) Math.round(costPizza * 100) / 100;
     }
 
-    void dopIngredients(){
-
+    public void dopIngredients(){
         int choice;
         do {
             System.out.println("Добавки к пицце 1 - да, 2 - нет. ");
@@ -79,8 +75,6 @@ public abstract class Pizza {
                 ingredients = addIngredient();
             }
         }while (choice == 1);
-
-
     }
 
 }

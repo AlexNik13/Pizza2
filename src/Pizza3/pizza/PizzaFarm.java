@@ -1,17 +1,19 @@
 
-package Pizza3;
+package Pizza3.pizza;
 
-public class PizzaFarm extends Pizza{
+import Pizza3.ingredients.Ingredient;
+
+public class PizzaFarm extends Pizza {
 
     public PizzaFarm() {
         super("Фермерская пицца");
         super.baseIningredient();
-        ingredients = meatIngredient();
+        setIngredients(meatIngredient(getIngredients()));
         super.dopIngredients();
         super.costPizza();
     }
 
-    Ingredient[] meatIngredient(){
+    public Ingredient[] meatIngredient(Ingredient[] ingredients){
         Ingredient[] temp = new Ingredient[ingredients.length + 5];
         int i = 0;
         for(; i < ingredients.length; i++){
