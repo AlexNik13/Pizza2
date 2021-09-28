@@ -12,6 +12,12 @@ public class Ingredient {
         this.quantity = quantity;
     }
 
+    public Ingredient(NameIngredient type, int quantity) {
+        this.name = type.toString();
+        this.cost = type.getCost();
+        this.quantity = quantity;
+    }
+
     public String getName() {
         return name;
     }

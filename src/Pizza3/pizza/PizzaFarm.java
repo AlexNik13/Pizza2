@@ -7,9 +7,7 @@ public class PizzaFarm extends Pizza {
 
     public PizzaFarm() {
         super("Фермерская пицца");
-        super.baseIningredient();
         setIngredients(meatIngredient(getIngredients()));
-        super.dopIngredients();
         super.costPizza();
     }
 

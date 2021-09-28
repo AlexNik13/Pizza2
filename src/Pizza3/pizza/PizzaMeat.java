@@ -1,14 +1,15 @@
 package Pizza3.pizza;
 
+import Pizza3.PizzaType;
 import Pizza3.ingredients.Ingredient;
 
 public class PizzaMeat extends Pizza{
 
     public PizzaMeat() {
         super("Мясная пицца");
-        super.baseIningredient();
+        super.setType(PizzaType.MEAT);
         setIngredients(meatIngredient(getIngredients()));
-        super.dopIngredients();
+
         super.costPizza();
     }
 
