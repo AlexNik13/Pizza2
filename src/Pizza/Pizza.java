@@ -1,7 +1,6 @@
 package Pizza ;
 
-import java.util.EnumMap;
-import java.util.Map;
+
 
 public class Pizza extends ArrayPizza implements PizzaFactori {
 
