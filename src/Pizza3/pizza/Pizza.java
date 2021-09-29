@@ -1,9 +1,6 @@
 package Pizza3.pizza;
 
-import Pizza3.PizzaType;
 import Pizza3.ingredients.Ingredient;
-
-import java.util.Scanner;
 
 public abstract class Pizza {
     private PizzaType type;
@@ -11,21 +8,18 @@ public abstract class Pizza {
     private double costPizza;
     private Ingredient[] ingredients = new Ingredient[3];
 
-    Scanner in = new Scanner(System.in);
-
-    Pizza(String name){
+    Pizza(String name) {
         this.name = name;
         ingredients = getBaseIngredients();
     }
-
-
 
     public String getName() {
         return name;
     }
 
-
-
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public double getCost() {
         return costPizza;
@@ -40,15 +34,13 @@ public abstract class Pizza {
     }
 
 
-
-    public double costPizza(){
+    public double costPizza() {
         costPizza = 0;
-        for(int i = 0; i < ingredients.length; i++){
+        for (int i = 0; i < ingredients.length; i++) {
             costPizza += (ingredients[i].getCost() / 1000) * ingredients[i].getQuantity();
         }
-        return (double) Math.round(costPizza * 100) / 100;
+        return costPizza;
     }
-
 
     public Ingredient[] getBaseIngredients() {
         Ingredient[] ingredients = new Ingredient[3];
@@ -56,10 +48,6 @@ public abstract class Pizza {
         ingredients[1] = new Ingredient("Сыр", 50, 100);
         ingredients[2] = new Ingredient("Соус", 50, 50);
         return ingredients;
-    }
-
-    public PizzaType getType() {
-        return type;
     }
 
     public void setType(PizzaType type) {

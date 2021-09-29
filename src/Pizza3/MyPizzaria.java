@@ -1,39 +1,35 @@
 package Pizza3;
 
 import Pizza3.ingredients.Ingredient;
-import Pizza3.pizza.Pizza;
-import Pizza3.pizza.PizzaMeat;
+import Pizza3.pizza.*;
 
 public class MyPizzaria implements Pizzaria {
-
-    /*@Override
-    public Pizza createPizza(PizzaType type, Ingredient[] baseIngredients) {
-        Pizza rezalt;
-        switch (type){
-            case MEAT -> {
-                PizzaMeat meatPizza = new PizzaMeat();
-                meatPizza.setIngredients(baseIngredients);
-                rezalt = meatPizza;
-                break;
-            }
-            default -> throw new IllegalStateException("Unexpected value: " + type);
-        }
-        return rezalt;
-    }*/
 
     @Override
     public Pizza createPizza(PizzaType type) {
         Pizza rezalt;
         switch (type){
-
             case MEAT -> {
                 PizzaMeat meatPizza = new PizzaMeat();
                 //meatPizza.setIngredients(getBaseIngredients()); // перебивает ингридиенты пицци
                 rezalt = meatPizza;
                 break;
             }
-
-
+            case VEGETAN -> {
+                PizzaVegan veganPizza = new PizzaVegan();
+                rezalt = veganPizza;
+                break;
+            }
+            case MARGARITA -> {
+                PizzaMargarita margaritaPizza = new PizzaMargarita();
+                rezalt = margaritaPizza;
+                break;
+            }
+            case AUTHOR -> {
+                Pizza autorPizza = new PizzaAutor();
+                rezalt = autorPizza;
+                break;
+            }
             default -> throw new IllegalStateException("Unexpected value: " + type);
         }
         return rezalt;
@@ -54,6 +50,7 @@ public class MyPizzaria implements Pizzaria {
             i++;
         }
         pizza.setIngredients(newIngredient);
+        pizza.setName(pizza.getName() + "*");
         pizza.costPizza();
         return pizza;
     }

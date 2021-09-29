@@ -41,24 +41,4 @@ public class Ingredient {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public double getCost() {
-//        return cost;
-//    }
-//
-//    public void setCost(double cost) {
-//        this.cost = cost;
-//    }
-//
-//    public int getQuantity() {
-//        return quantity;
-//    }
-//
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
 }

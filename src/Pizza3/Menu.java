@@ -3,11 +3,11 @@ package Pizza3;
 import Pizza3.ingredients.Ingredient;
 import Pizza3.ingredients.NameIngredient;
 import Pizza3.pizza.Pizza;
+import Pizza3.pizza.PizzaType;
 
-import javax.swing.plaf.IconUIResource;
 import java.util.Scanner;
 
-public  class  Menu {
+public class Menu {
 
     static Scanner in = new Scanner(System.in);
     private static MyPizzaria pizzaria = new MyPizzaria();
@@ -15,8 +15,8 @@ public  class  Menu {
     public Menu() {
     }
 
-    public static Pizza[] start (Pizza[] pizza) {
-
+    public Pizza[] start() {
+        Pizza[] pizza = new Pizza[0];
         boolean menu = true;
 
         while (menu) {
@@ -24,16 +24,18 @@ public  class  Menu {
             System.out.println("1. Мясная пицца");
             System.out.println("2. Вегатареанская пицца");
             System.out.println("3. Маргарита пицца");
+            System.out.println("4. Своя пицца");
             System.out.println("0. Посчитать");
 
             int choice = in.nextInt();
             switch (choice) {
                 case 0:
                     menu = false;
+                    Order order = new Order(pizza);
+                    order.printCheck();
                     break;
                 case 1:
                     pizza = addPizza(pizza, PizzaType.MEAT);
-
                     break;
                 case 2:
                     pizza = addPizza(pizza, PizzaType.VEGETAN);
@@ -41,34 +43,36 @@ public  class  Menu {
                 case 3:
                     pizza = addPizza(pizza, PizzaType.MARGARITA);
                     break;
+                case 4:
+                    pizza = addPizza(pizza, PizzaType.AUTHOR);
+                    break;
             }
         }
         return pizza;
     }
 
-    public static Pizza MakeAddIngredient(Pizza pizza){
+    private Pizza makeAddIngredient(Pizza pizza) {
         System.out.println("Добавить ингридиенты 1 - да. 2 - нет.");
         int choice = in.nextInt();
-        if(choice == 1){
-            pizza =  pizzaria.addIngredients(pizza, addIngredient());
+        if (choice == 1) {
+            pizza = pizzaria.addIngredients(pizza, addIngredient());
         }
         return pizza;
     }
 
-    public static Pizza[] addPizza(Pizza[] pizza, PizzaType type){
-        Pizza[] addPizza = new Pizza[pizza.length +1];
-        for (int i = 0; i < pizza.length; i++){
+    private Pizza[] addPizza(Pizza[] pizza, PizzaType type) {
+        Pizza[] addPizza = new Pizza[pizza.length + 1];
+        for (int i = 0; i < pizza.length; i++) {
             addPizza[i] = pizza[i];
         }
-
         addPizza[pizza.length] = pizzaria.createPizza(type);
-        addPizza[pizza.length] = MakeAddIngredient(addPizza[pizza.length]);
+        addPizza[pizza.length] = makeAddIngredient(addPizza[pizza.length]);
         return addPizza;
     }
 
-    public static Ingredient[] addIngredient(){
+    private Ingredient[] addIngredient() {
         Ingredient[] addIngredient = new Ingredient[0];
-        boolean menu =true;
+        boolean menu = true;
 
         while (menu) {
             System.out.println("Выберети ингридиент");
@@ -85,7 +89,7 @@ public  class  Menu {
 
             int choice = in.nextInt();
 
-            switch (choice){
+            switch (choice) {
                 case 0:
                     menu = false;
                     break;
@@ -121,13 +125,13 @@ public  class  Menu {
         return addIngredient;
     }
 
-   public static Ingredient[] addIngredient(Ingredient[] ingredient, NameIngredient type){
-       Ingredient[] addIngredient = new Ingredient[ingredient.length + 1];
+    private Ingredient[] addIngredient(Ingredient[] ingredient, NameIngredient type) {
+        Ingredient[] addIngredient = new Ingredient[ingredient.length + 1];
 
-       for (int i = 0; i < ingredient.length; i++){
-           addIngredient[i] = ingredient[i];
-       }
-       addIngredient[ingredient.length] = new Ingredient(type, 50);
-       return addIngredient;
-   }
+        for (int i = 0; i < ingredient.length; i++) {
+            addIngredient[i] = ingredient[i];
+        }
+        addIngredient[ingredient.length] = new Ingredient(type, 50);
+        return addIngredient;
+    }
 }

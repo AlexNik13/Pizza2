@@ -22,8 +22,6 @@ public class PizzaFarm extends Pizza {
         temp[i + 2] = new Ingredient("Домашня колбаса", 235, 50);
         temp[i + 3] = new Ingredient("Лук", 18, 10);
         temp[i + 4] = new Ingredient("Помидоры", 35, 30);
-
-
         return temp;
     }
 }
