@@ -2,12 +2,12 @@ package GeometricFigure.Figures;
 
 public abstract class Figure {
     private String name;
-    private String color;
+    private ColorFigure color;
 
 
     public Figure(String name, ColorFigure color) {
         this.name = name;
-        this.color = color.getColor();
+        this.color = color;
     }
 
     public String getName() {
@@ -18,11 +18,13 @@ public abstract class Figure {
         this.name = name;
     }
 
-    public String getColor() {
+    public ColorFigure getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(ColorFigure color) {
         this.color = color;
     }
+
+
 }

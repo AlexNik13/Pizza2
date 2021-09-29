@@ -1,6 +1,5 @@
 package GeometricFigure.Figures;
 
-import javax.lang.model.type.NullType;
 import java.util.Formatter;
 
 //Квадрат
@@ -33,14 +32,14 @@ public class Square extends Figure implements AreaPerimeter {
     @Override
     public String toString() {
         Formatter str = new Formatter();
-        str.format("%s, цвет: %s, периметр: %.2f, площадь %.2f", getName(), getColor(), getPerimeter(), getArea());
+        str.format("%s, цвет: %s, периметр: %.2f, площадь %.2f", getName(), getColor().getColor(), getPerimeter(), getArea());
         System.out.println(str.toString());
         return null;
     }
+
     @Override
-    public int hashCode(){
-        System.out.printf("S*P = %.2f\n", getPerimeter() * getArea());
+    public int hashCode() {
+        System.out.printf("S*P = %.2f. Номер цвета %s \n", getPerimeter() * getArea(), getColor().ordinal() + 1);
         return 0;
     }
-
 }
