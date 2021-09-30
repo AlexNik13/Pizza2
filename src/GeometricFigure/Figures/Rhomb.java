@@ -3,7 +3,7 @@ package GeometricFigure.Figures;
 import java.util.Formatter;
 
 //Ромб
-public class Rhomb extends Figure implements AreaPerimeter {
+public class Rhomb extends Figure {
     private double diagonalA;
     private double diagonalB;
 
@@ -43,14 +43,12 @@ public class Rhomb extends Figure implements AreaPerimeter {
     public String toString() {
         Formatter str = new Formatter();
         str.format("%s, цвет: %s, периметр: %.2f, площадь %.2f", getName(), getColor().getColor(), getPerimeter(), getArea());
-        System.out.println(str.toString());
-        return null;
+        return str.toString();
     }
 
     @Override
     public int hashCode() {
-        System.out.printf("S*P = %.2f. Номер цвета %s \n", getPerimeter() * getArea(), getColor().ordinal() + 1);
-        return 0;
+        return (int) (getPerimeter() * getArea() * (getColor().ordinal() + 1));
     }
 
 }

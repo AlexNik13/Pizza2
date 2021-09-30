@@ -3,7 +3,7 @@ package GeometricFigure.Figures;
 import java.util.Formatter;
 
 //Треугольник
-public class Triangle extends Figure implements AreaPerimeter {
+public class Triangle extends Figure {
     private double sideA;
     private double sideB;
     private double sideC;
@@ -13,8 +13,10 @@ public class Triangle extends Figure implements AreaPerimeter {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
-        if (!checkForExistence())
+
+        if (!checkForExistence()) {
             System.out.println("Такого треугольника не существует.");
+        }
     }
 
     private boolean checkForExistence() {
@@ -62,25 +64,20 @@ public class Triangle extends Figure implements AreaPerimeter {
 
     @Override
     public String toString() {
-        if (!checkForExistence()) {
-            System.out.println("Такого треугольника не существует.");
-        } else {
-            Formatter str = new Formatter();
-            str.format("%s, цвет: %s, периметр: %.2f, площадь %.2f", getName(), getColor().getColor(), getPerimeter(), getArea());
-            System.out.println(str.toString());
-        }
 
-        return null;
+        if (!checkForExistence()) {
+            return "Такого треугольника не существует.";
+        }
+        Formatter str = new Formatter();
+        str.format("%s, цвет: %s, периметр: %.2f, площадь %.2f", getName(), getColor().getColor(), getPerimeter(), getArea());
+        return str.toString();
     }
 
     @Override
     public int hashCode() {
         if (!checkForExistence()) {
-            System.out.println("Такого треугольника не существует.");
-        } else {
-            System.out.printf("S*P = %.2f. Номер цвета %s \n", getPerimeter() * getArea(), getColor().ordinal() + 1);
+            return -1;
         }
-
-        return 0;
+        return (int) (getPerimeter() * getArea() * (getColor().ordinal() + 1));
     }
 }

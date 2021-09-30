@@ -1,6 +1,6 @@
 package GeometricFigure.Figures;
 
-public abstract class Figure {
+public abstract class Figure implements AreaPerimeter {
     private String name;
     private ColorFigure color;
 
