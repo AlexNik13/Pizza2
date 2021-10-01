@@ -1,37 +1,38 @@
 package Soccer.Player;
 
-import Soccer.Player.Enum.PositionType;
-import Soccer.Player.Enum.Skill;
-import Soccer.Player.Enum.SkillAttackers;
+import Soccer.Player.Enum.PlayerType;
 
 import java.util.Map;
-import java.util.Set;
 
 public abstract class Player {
     private String firstName;
-    private String LastName;
+    private String lastName;
     private int playerNnumber;
     private int age;
+    private PlayerType type;
 
-    public Player(String firstName, String lastName, int playerNnumber, int age) {
+    public Player(String firstName, String lastName, int playerNnumber, int age, PlayerType type) {
         this.firstName = firstName;
-        LastName = lastName;
+        this.lastName = lastName;
         this.playerNnumber = playerNnumber;
         this.age = age;
+        this.type = type;
+    }
+
+    public PlayerType getType() {
+        return type;
     }
 
     public String getName() {
-        return firstName + " " + LastName;
+        return firstName + " " + lastName;
     }
-
-
 
     public String getFirstName() {
         return firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public int getPlayerNnumber() {
@@ -49,15 +50,4 @@ public abstract class Player {
     public void setAge(int age) {
         this.age = age;
     }
-
-    public abstract Map<Skill, Integer> getCharacteristic();
-
-
-    public abstract void setCharacteristic(Skill skill, int skillNum);
-
-    public abstract Set<PositionType> getPosition();
-
-    public abstract void setPosition(PositionType type);
-
-    public abstract String getType();
 }

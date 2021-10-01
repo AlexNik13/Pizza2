@@ -1,5 +1,5 @@
 package Soccer.Player.Enum;
 
-public enum SkillDefenders {
+public enum SkillDefender {
     SPEED, TACKLE, INTERCEPTION
 }

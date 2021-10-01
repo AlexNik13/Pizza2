@@ -1,5 +1,5 @@
 package Soccer.Player.Enum;
 
-public enum SkillMidfielders {
+public enum SkillMidfielder {
     SPEED, PASS, INTERCEPTION
 }
