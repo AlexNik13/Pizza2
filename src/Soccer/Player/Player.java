@@ -79,6 +79,7 @@ public class Player {
     @Override
     public String toString() {
 
-        return this.getName() + ". Номер: " + this.getPlayerNumber() + " " + this.getType().toString().toLowerCase() + ". Позиция: " + this.getPosition();
+        return this.getName() + ". Номер: " + this.getPlayerNumber() + " " + this.getType().toString().toLowerCase() + ". Позиция: " + this.getPosition()
+                + ". Характеристики: " + this.getCharacteristic();
     }
 }

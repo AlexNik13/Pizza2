@@ -1,5 +1,10 @@
 package Soccer;
 
+import Soccer.Player.Enum.PlayerType;
+import Soccer.Player.Player;
+
+import java.util.ArrayList;
+
 public class ClubManager {
     private String name;
     private FootballClub footballClub;
@@ -7,9 +12,10 @@ public class ClubManager {
 
     public ClubManager(String name) {
         this.name = name;
-        Menu menu = new Menu() ;
-        footballClub = menu.newFootballClub();
-        menu.mainMenu(this);
+    }
+
+    void doTraining(){
+
     }
 
     public FootballClub getFootballClub() {
@@ -24,10 +30,12 @@ public class ClubManager {
         return name;
     }
 
-    void addPlayer(){
-
+    void addPlayer(String firstName, String lastName, int playerNumber, int age, PlayerType type) {
+        footballClub.addPlayer(firstName, lastName, playerNumber, age, type);
     }
 
-
+    public ArrayList<Player> getPlayerArray(){
+        return footballClub.getPlayerArray();
+    }
 
 }
