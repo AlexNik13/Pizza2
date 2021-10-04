@@ -1,22 +1,31 @@
 package Soccer.Player;
 
 import Soccer.Player.Enum.PlayerType;
+import Soccer.Player.Enum.PositionType;
+import Soccer.Player.Enum.Skill;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
-public abstract class Player {
+public class Player {
     private String firstName;
     private String lastName;
-    private int playerNnumber;
+    private int playerNumber;
     private int age;
     private PlayerType type;
+    private Map<Skill, Integer> characteristic;
+    private Set<PositionType> position;
 
-    public Player(String firstName, String lastName, int playerNnumber, int age, PlayerType type) {
+    public Player(String firstName, String lastName, int playerNumber, int age, PlayerType type) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.playerNnumber = playerNnumber;
+        this.playerNumber = playerNumber;
         this.age = age;
         this.type = type;
+        position = new HashSet<>();
+        characteristic = new TreeMap<>();
     }
 
     public PlayerType getType() {
@@ -35,12 +44,12 @@ public abstract class Player {
         return lastName;
     }
 
-    public int getPlayerNnumber() {
-        return playerNnumber;
+    public int getPlayerNumber() {
+        return playerNumber;
     }
 
-    public void setPlayerNnumber(int playerNnumber) {
-        this.playerNnumber = playerNnumber;
+    public void setPlayerNumber(int playerNumber) {
+        this.playerNumber = playerNumber;
     }
 
     public int getAge() {
@@ -49,5 +58,27 @@ public abstract class Player {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Map<Skill, Integer> getCharacteristic() {
+        return characteristic;
+    }
+
+    public void setCharacteristic(Skill skill, int skillNum) {
+        characteristic.put(skill, skillNum);
+    }
+
+    public Set<PositionType> getPosition() {
+        return position;
+    }
+
+    public void setPosition(PositionType type) {
+        this.position.add(type);
+    }
+
+    @Override
+    public String toString() {
+
+        return this.getName() + ". Номер: " + this.getPlayerNumber() + " " + this.getType().toString().toLowerCase() + ". Позиция: " + this.getPosition();
     }
 }
