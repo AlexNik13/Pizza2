@@ -28,6 +28,26 @@ public class Player {
         characteristic = new TreeMap<>();
     }
 
+    public int opportunityToTrain(){
+        int size = characteristic.size() * 10;
+        for (int i = 0; i < characteristic.size(); i++){
+            size -= characteristic.get(characteristic.keySet().toArray()[i]) ;
+        }
+        return size;
+    }
+
+    public void doTrain(){
+        while (true){
+           int i = (int)( Math.random()*1000) % characteristic.size();
+
+           if(characteristic.get(characteristic.keySet().toArray()[i]) < 10){
+              characteristic.put((Skill) characteristic.keySet().toArray()[i], characteristic.get(characteristic.keySet().toArray()[i]) + 1);
+               System.out.println(this.getName() + " " + characteristic.keySet().toArray()[i] + " +1");
+              break;
+           }
+        }
+    }
+
     public PlayerType getType() {
         return type;
     }

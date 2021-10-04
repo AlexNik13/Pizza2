@@ -59,7 +59,7 @@ public class Menu {
                     break;
 
                 case 4:
-                    menuCreatePlayer();
+                    clubManager.doTraining();
                     break;
 
                 case 5:

@@ -14,9 +14,17 @@ public class ClubManager {
         this.name = name;
     }
 
-    void doTraining(){
-
+    public void doTraining(){
+        for(Player player : footballClub.getPlayerArray()){
+            if(player.opportunityToTrain() > 0){
+                player.doTrain();
+            }else {
+                System.out.println(player.getName() + " Натренирован по максимуму");
+            }
+        }
     }
+
+
 
     public FootballClub getFootballClub() {
         return footballClub;
